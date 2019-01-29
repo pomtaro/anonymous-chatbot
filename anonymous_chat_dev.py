@@ -77,6 +77,8 @@ def webhook():
                     if messaging_event["message"].get("text"):
                         message_text = messaging_event["message"]["text"]  # the message's text
 
+                        global user_ids
+
                         if not sender_id in user_ids.values():
                             user_ids[message_text] = sender_id
                             text = '登録できたよ〜'
