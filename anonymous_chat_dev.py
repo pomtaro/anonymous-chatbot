@@ -96,21 +96,31 @@ def webhook():
                             send_message(sender_id, text)
 
 
-                        if '@ひがし' in message_text:
+                        elif '@' in message_text:
+                            for key in user_ids:
+                                if key in message_text.split()[0]:
+                                    text = message_text
+                                    send_message(user_ids[key], text)
+                                else:
+                                    pass
+                            
+
+
+
                             recipient_id = user_ids['ひがし']
                             text = message_text
                             send_message(recipient_id, text)
                             text = 'こっそり送信したよ〜'
                             send_message(sender_id, text)
 
-                        if '@こじま' in message_text:
+                        elif '@こじま' in message_text:
                             recipient_id = user_ids['こじま']
                             text = message_text
                             send_message(recipient_id, text)
                             text = 'こっそり送信したよ〜'
                             send_message(sender_id, text)
 
-                        if message_text == 'メンバー':
+                        elif message_text == 'メンバー':
                             text = '今グループにいるメンバーだよ〜'
                             send_message(sender_id, text)
                             for key in user_ids:
@@ -118,9 +128,9 @@ def webhook():
                                 send_message(sender_id, text)
 
 
-                    else:
-                        text = "ももか「全然かわいくない！ちゃんとルール守って！」"
-                        send_message(sender_id, text)
+                        else:
+                            text = "ももか「全然かわいくない！ちゃんとルール守って！」"
+                            send_message(sender_id, text)
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
@@ -136,7 +146,7 @@ def webhook():
                     if message_text == 'スタート':
                         text = 'まずは登録しよう！自分の名前を入力してね'
                         send_message(sender_id, text)
-                        
+
     return "ok", 200
 
 
