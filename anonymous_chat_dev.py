@@ -99,8 +99,10 @@ def webhook():
                         elif '@' in message_text:
                             for key in user_ids:
                                 if key in message_text.split()[0]:
-                                    text = message_text
+                                    text = message_text.split()[1]
                                     send_message(user_ids[key], text)
+                                    text = 'こっそり送信しといたよ〜'
+                                    send_message(sender_id, text)
                                 else:
                                     pass
 
@@ -114,6 +116,8 @@ def webhook():
 
                         else:
                             text = "ももか「全然かわいくない！ちゃんとルール守って！」"
+                            send_message(sender_id, text)
+                            text = 'アンドーム「ひえー」'
                             send_message(sender_id, text)
 
                 if messaging_event.get("delivery"):  # delivery confirmation
