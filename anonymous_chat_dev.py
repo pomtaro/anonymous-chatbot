@@ -103,22 +103,6 @@ def webhook():
                                     send_message(user_ids[key], text)
                                 else:
                                     pass
-                            
-
-
-
-                            recipient_id = user_ids['ひがし']
-                            text = message_text
-                            send_message(recipient_id, text)
-                            text = 'こっそり送信したよ〜'
-                            send_message(sender_id, text)
-
-                        elif '@こじま' in message_text:
-                            recipient_id = user_ids['こじま']
-                            text = message_text
-                            send_message(recipient_id, text)
-                            text = 'こっそり送信したよ〜'
-                            send_message(sender_id, text)
 
                         elif message_text == 'メンバー':
                             text = '今グループにいるメンバーだよ〜'
