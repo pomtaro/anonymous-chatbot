@@ -92,7 +92,9 @@ def webhook():
                             send_message(sender_id, text)
                             text = '例えばこんな感じ〜'
                             send_message(sender_id, text)
-                            text = '@ひがし　ものごっつたばこくさいんやけど'
+                            text = '@ひがし ものごっつたばこくさいんやけど'
+                            send_message(sender_id, text)
+                            text = '宛先のあとにスペースを入れてね'
                             send_message(sender_id, text)
 
 
