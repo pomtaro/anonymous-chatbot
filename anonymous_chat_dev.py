@@ -84,6 +84,17 @@ def webhook():
                             text = '登録できたよ〜'
                             send_message(sender_id, text)
 
+                            for id in user_ids.values():
+                                text = message_text + 'さんが新しく仲間になったよ〜'
+                                send_message(id, text)
+
+                            text = "匿名で言いたいことを言おう！"
+                            send_message(sender_id, text)
+                            text = '例えばこんな感じ〜'
+                            send_message(sender_id, text)
+                            text = '@ひがし　ものごっつたばこくさいんやけど'
+                            send_message(sender_id, text)
+
 
                         if '@ひがし' in message_text:
                             recipient_id = user_ids['ひがし']
@@ -123,12 +134,9 @@ def webhook():
                     message_text = messaging_event["postback"]["title"]
 
                     if message_text == 'スタート':
-                        text = "匿名で言いたいことを言おう！"
+                        text = 'まずは登録しよう！自分の名前を入力してね'
                         send_message(sender_id, text)
-                        text = '例えばこんな感じ〜'
-                        send_message(sender_id, text)
-                        text = '@ひがし　ものごっつたばこくさいんやけど'
-                        send_message(sender_id, text)
+                        
     return "ok", 200
 
 
